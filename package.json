@@ -1,0 +1,28 @@
+{
+  "name": "gojob-ts-style",
+  "version": "1.0.0",
+  "description": "A mostly reasonable approach to TypeScript.",
+  "main": "tslint-base.json",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gojob-1337/typescript.git"
+  },
+  "keywords": [
+    "style",
+    "guide",
+    "lint",
+    "gojob",
+    "ts",
+    "tsx",
+    "react",
+    "nest"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gojob-1337/typescript/issues"
+  },
+  "homepage": "https://github.com/gojob-1337/typescript"
+}
