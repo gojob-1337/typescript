@@ -48,7 +48,8 @@
 **Tools**
 
   - Code Style Linters
-    - [TSLint](https://palantir.github.io/tslint/) - [Gojob Style .tslint-base.json](https://github.com/gojob-1337/typescript/blob/master/tslint-base.json)
+    - [TSLint](https://palantir.github.io/tslint/) 
+    - [Gojob Style tslint-base.json](https://github.com/gojob-1337/typescript/blob/master/package/tslint-config-gojob/tslint-base.json)
 
 **Blogs**
 
