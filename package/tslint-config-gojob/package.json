@@ -1,7 +1,8 @@
 {
-  "name": "gojob-ts-style",
+  "name": "tslint-config-gojob",
   "version": "0.0.1",
   "description": "A mostly reasonable approach to TypeScript.",
+  "main": "tslint-base.json",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
