@@ -1,5 +1,5 @@
 {
-  "name": "tslint-config-gojob",
+  "name": "@gojob/tslint-config",
   "version": "0.0.1",
   "description": "A mostly reasonable approach to TypeScript.",
   "main": "tslint-base.json",
