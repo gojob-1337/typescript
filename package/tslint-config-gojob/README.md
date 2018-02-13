@@ -13,7 +13,7 @@ Our default export contains all of our TSLint rules, including `tslint:recommend
 1. Install the correct versions of each package, which are listed by the command:
 
   ```sh
-  yarn add tslint-config-gojob
+  yarn add @gojob/tslint-config --dev
   ```
   
 2. Within your `tsconfig.json` add the following extends:
