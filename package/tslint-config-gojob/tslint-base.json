@@ -39,7 +39,7 @@
     "no-duplicate-imports": true,
     "no-require-imports": true,
     "prefer-const": true,
-    "no-default-export": true,
+    "no-default-export": false,
     "prefer-object-spread": true,
     "no-var-keyword": true,
     "no-irregular-whitespace": true,
