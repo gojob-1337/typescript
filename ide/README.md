@@ -27,7 +27,7 @@
 ## Visual Studio Code
   > **Note**: This assumes you are currently using [Visual Studio Code](https://code.visualstudio.com/).
 
-  <a name="vs-code--plugins"></a><a name="1.1"></a>
+  <a name="vs-code--plugins"></a><a name="2.1"></a>
   - [1.1](#vs-code--plugins) **Plugins**:
     - Recommended:
       - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
@@ -40,7 +40,7 @@
       - [DotENV](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
 
 
-<a name="vs-code--debugging"></a><a name="1.2"></a>
+<a name="vs-code--debugging"></a><a name="2.2"></a>
   - [1.2](#vs-code--debugging) **Debugging**:
 
     In order to run our API with the inspector, use the following debug configuration:
