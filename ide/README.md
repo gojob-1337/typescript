@@ -78,7 +78,7 @@
     }
     ```
 
-    > **Note**: The first block of properties is added to the original `jest.json` configuration file.
+    > **Note**: This block of properties is the only difference with the original `jest.json`.
 
     This file will be ignored by `git` as `.vscode` is referenced in `.gitignore`.
 
