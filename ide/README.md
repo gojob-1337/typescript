@@ -92,6 +92,8 @@
 
     Restart Visual Studio Code and use the **Debug** link above Jest tests. Breakpoints can be used too :tada:
 
+    **NB**: the Jest plugin uses `jest` installed in `./node_modules/jest/bin/jest.js`.
+
     ![vscode-jest-debug](./assets/vscode-jest-debug.jpg)
 
 
