@@ -28,11 +28,11 @@
   > **Note**: This assumes you are currently using [Visual Studio Code](https://code.visualstudio.com/).
 
   <a name="vs-code--plugins"></a><a name="2.1"></a>
-  - [1.1](#vs-code--plugins) **Plugins**:
+  - [2.1](#vs-code--plugins) **Plugins**:
     - Recommended:
-      - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-      - [TSLint](https://marketplace.visualstudio.com/items?itemName=eg2.tslint)
       - [Jest](https://marketplace.visualstudio.com/items?itemName=Orta.vscode-jest)
+      - [TSLint](https://marketplace.visualstudio.com/items?itemName=eg2.tslint)
+      - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
       - [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
     - Optional:
       - [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
@@ -41,9 +41,9 @@
 
 
 <a name="vs-code--debugging"></a><a name="2.2"></a>
-  - [1.2](#vs-code--debugging) **Debugging**:
+  - [2.2](#vs-code--debugging) **Debugging**:
 
-    In order to run our API with the inspector, use the following debug configuration:
+    In order to run our **API** with the inspector, use the following debug configuration:
     ```json
     {
       "type": "node",
@@ -59,6 +59,43 @@
     > **Note**: Node v8+ is required in order to use the (new) inspector.
 
     You can now put breakpoints in the TypeScript code of the project and use the debugger of VS Code.
+
+    ___
+
+    The easiest way to debug **Jest** tests is to use the [Jest](https://marketplace.visualstudio.com/items?itemName=Orta.vscode-jest) plugin. The way it's done at Gojob allows you to run TypeScript tests with the inspector (breakpoints are hit), without having to transpile them to JavaScript nor to build/load their sourcemaps.
+
+    First, create a file `jest-debug.json` in the `.vscode` folder (root of the project). This is basically a copy of our `jest.json` configuration, but with an additional `rootDir` property, and all the options we usually pass through the CLI (`silent`, `notify`, etc). `testRegex` must be able to match all the test files of the project (unit tests, e2e tests, etc).
+
+    ```javascript
+    {
+      "rootDir": "../",
+      "testRegex": "/(src|e2e)/.*\\.(e2e-test|e2e-spec|test|spec).(ts|tsx|js)$",
+      "notify": true,
+      "forceExit": true,
+      "silent": false,
+
+      // [...]: copy of jest.json
+    }
+    ```
+
+    > **Note**: This block of properties is the only difference with the original `jest.json`.
+
+    This file will be ignored by `git` as `.vscode` is referenced in `.gitignore`.
+
+    Then, add the following configuration to your VS Code settings:
+
+    ```json
+    "jest.autoEnable": false,
+    "jest.pathToConfig": ".vscode/jest-debug.json",
+    "jest.runAllTestsFirst": false
+    ```
+
+    Restart Visual Studio Code and use the **Debug** link above Jest tests. Breakpoints can be used too :tada:
+
+    **NB**: the Jest plugin uses `jest` installed in `./node_modules/jest/bin/jest.js`.
+
+    ![vscode-jest-debug](./assets/vscode-jest-debug.jpg)
+
 
 
 **[⬆ back to top](#table-of-contents)**
