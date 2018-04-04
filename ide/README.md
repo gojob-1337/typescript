@@ -44,6 +44,7 @@
   - [2.2](#vs-code--debugging) **Debugging**:
 
     In order to run our **API** with the inspector, use the following debug configuration:
+
     ```json
     {
       "type": "node",
@@ -66,7 +67,7 @@
 
     First, create a file `jest-debug.json` in the `.vscode` folder (root of the project). This is basically a copy of our `jest.json` configuration, but with an additional `rootDir` property, and all the options we usually pass through the CLI (`silent`, `notify`, etc). `testRegex` must be able to match all the test files of the project (unit tests, e2e tests, etc).
 
-    ```javascript
+    ```json
     {
       "rootDir": "../",
       "testRegex": "/(src|e2e)/.*\\.(e2e-test|e2e-spec|test|spec).(ts|tsx|js)$",
@@ -95,6 +96,30 @@
     **NB**: the Jest plugin uses `jest` installed in `./node_modules/jest/bin/jest.js`.
 
     ![vscode-jest-debug](./assets/vscode-jest-debug.jpg)
+
+    ___
+
+    You don't need the Jest plugin if you want to debug the full execution of tests. Use the following VSCode configuration:
+
+    ```json
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "E2E Tests",
+      "program": "${workspaceFolder}/node_modules/.bin/jest",
+      "args": [
+        "--silent=false",
+        "--config=${workspaceFolder}/jest.json",
+        "--runInBand",
+        "--testRegex=/src/.*\\.e2e-test\\.(ts|js)$"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
+    }
+    ```
+
+    *Example for E2E tests. Adapt the parameters depending on the tests you need to run (unit tests, integration tests...). **--runInBand** is mandatory, no matter
+    which tests you are running.*
 
 
 
