@@ -121,6 +121,22 @@
     *Example for E2E tests. Adapt the parameters depending on the tests you need to run (unit tests, integration tests...). **--runInBand** is mandatory, no matter
     which tests you are running.*
 
+    ___
+
+    To debug **Frontend** projects, use the following configuration:
+
+    ```json
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "Debug Webapp",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}/packages/webapp/src",
+    }
+    ```
+
+    *Example for a "webapp" project, located in a yarn package. Adding `src` to the `webRoot` path is essential with TypeScript code, in order for VSCode to automatically find **sourceMaps**.*
+
 
 
 **[⬆ back to top](#table-of-contents)**
