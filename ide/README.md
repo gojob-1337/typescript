@@ -65,35 +65,29 @@
 
     The easiest way to debug **Jest** tests is to use the [Jest](https://marketplace.visualstudio.com/items?itemName=Orta.vscode-jest) plugin. The way it's done at Gojob allows you to run TypeScript tests with the inspector (breakpoints are hit), without having to transpile them to JavaScript nor to build/load their sourcemaps.
 
-    First, create a file `jest-debug.json` in the `.vscode` folder (root of the project). This is basically a copy of our `jest.json` configuration, but with an additional `rootDir` property, and all the options we usually pass through the CLI (`silent`, `notify`, etc). `testRegex` must be able to match all the test files of the project (unit tests, e2e tests, etc).
+    All you need to do is defining a debug configuration named `vscode-jest-tests` to allow the **Debug** option/button to work.
 
     ```json
     {
-      "rootDir": "../",
-      "testRegex": "/(src|e2e)/.*\\.(e2e-test|e2e-spec|test|spec).(ts|tsx|js)$",
-      "notify": true,
-      "forceExit": true,
-      "silent": false,
-
-      // [...]: copy of jest.json
-    }
-    ```
-
-    > **Note**: This block of properties is the only difference with the original `jest.json`.
-
-    This file will be ignored by `git` as `.vscode` is referenced in `.gitignore`.
-
-    Then, add the following configuration to your VS Code settings:
-
-    ```json
-    "jest.autoEnable": false,
-    "jest.pathToConfig": ".vscode/jest-debug.json",
-    "jest.runAllTestsFirst": false
+      "type": "node",
+      "name": "vscode-jest-tests",
+      "request": "launch",
+      "program": "${workspaceFolder}/node_modules/jest/bin/jest",
+      "args": [
+        "--silent=false",
+        "--config=${workspaceFolder}/jest.json",
+        "--runInBand",
+        "--testRegex=/src/.*\\..*test\\.(ts|js)$"
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
+    },
     ```
 
     Restart Visual Studio Code and use the **Debug** link above Jest tests. Breakpoints can be used too :tada:
 
-    **NB**: the Jest plugin uses `jest` installed in `./node_modules/jest/bin/jest.js`.
+    **NB**: Adapt the configuration to your needs and project.
 
     ![vscode-jest-debug](./assets/vscode-jest-debug.jpg)
 
@@ -120,6 +114,26 @@
 
     *Example for E2E tests. Adapt the parameters depending on the tests you need to run (unit tests, integration tests...). **--runInBand** is mandatory, no matter
     which tests you are running.*
+
+    **Or** you can also debug the **current file** (open in the editor) with a config similar to:
+
+    ```json
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Test (Current File)",
+      "program": "${workspaceFolder}/node_modules/.bin/jest",
+      "args": [
+        "--silent=false",
+        "--config=${workspaceFolder}/jest.json",
+        "--runInBand",
+        "--testRegex=/src/.*\\..*?test\\.(ts|js)$",
+        "${file}"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
+    }
+    ```
 
     ___
 
