@@ -48,11 +48,23 @@
     "max-line-length": [
       150
     ],
+    "object-literal-sort-keys": true,
     "member-ordering": [
       true,
-      "public-before-private",
-      "static-before-instance",
-      "variables-before-functions"
+      {
+        "order": [
+          "public-static-field",
+          "public-instance-field",
+          "public-constructor",
+          "private-static-field",
+          "private-instance-field",
+          "private-constructor",
+          "public-instance-method",
+          "protected-instance-method",
+          "private-instance-method"
+        ],
+        "alphabetize": true
+      }
     ],
     "curly": false,
     "interface-name": [true, "always-prefix"],
