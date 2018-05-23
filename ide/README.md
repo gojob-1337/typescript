@@ -22,7 +22,46 @@
       Arguments = -c $ProjectFileDir$/tslint.json --fix $FileName$
       Working directory = $FileDir$
     ```
-    ![Autolint](./assets/autolint.png)
+    ![ws-autolint](./assets/ws-autolint.png)
+
+  <a name="webstorm--debugging"></a><a name="1.2"></a>
+  - [1.2](#webstorm--debugging) **Debugging**:
+      <a name="webstorm--debugging--debug-api"></a><a name="1.2.1"></a>
+      - [1.2.1](#webstorm--debugging--debug-api) **Debug API**:
+
+        First you need to edit your config :
+
+        ![ws-edit-config](./assets/ws-edit-config.png)
+
+        Then create an **Node.js** configuration as following :
+
+        ![ws-run-api](./assets/ws-run-api.png)
+
+        Now you can run API in debug mode and put breakpoints in your code.
+
+        ![ws-run-api-debug](./assets/ws-run-api-debug.png)
+      <a name="webstorm--debugging--jest"></a><a name="1.2.2"></a>
+      - [1.2.2](#webstorm--debugging--jest) **Jest**:
+
+        As described [above](#webstorm--debugging--debug-api) edit your config.
+
+        Then create four **Jest** configuration as following :
+
+        ![ws-jest-default](./assets/ws-jest-default.png)
+        > --forceExit --silent=false --runInBand --testRegex=/(src|e2e)/.*\.(e2e-test|e2e-spec|test|spec).(ts|tsx|js)$
+
+        ![ws-jest-all](./assets/ws-jest-all.png)
+        > --forceExit --silent=false --runInBand --testRegex=/(src|e2e)/.*\.(e2e-test|e2e-spec|test|spec).(ts|tsx|js)$
+
+        ![ws-jest-e2e](./assets/ws-jest-e2e.png)
+        > --forceExit --silent=false --runInBand --testRegex=/(src|e2e)/.*\.(e2e-test|e2e-spec).(ts|tsx|js)$
+
+        ![ws-jest-tu](./assets/ws-jest-tu.png)
+        > --forceExit --silent=false --runInBand --testRegex=/src/.*\.(test|spec).(ts|tsx|js)$
+
+        Now you can use this check in your code to execute jest for a specific test
+
+        ![ws-jest-run](./assets/ws-jest-run.png)
 
 ## Visual Studio Code
   > **Note**: This assumes you are currently using [Visual Studio Code](https://code.visualstudio.com/).
