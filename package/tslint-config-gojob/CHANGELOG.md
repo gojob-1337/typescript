@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## 0.0.5 - 2018-08-30
+### Removed
+- Rule: `"no-unused-variable": true`, must be set within `tsconfig.json` file since TypeScript 2.9.
+
+
 ## 0.0.3 - 2018-03-01
 ### Added
 - Rule: `"no-unused-variable": true` to avoid all variables unused within file or context.
