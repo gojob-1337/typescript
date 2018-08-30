@@ -74,7 +74,6 @@
     "arrow-parens": false,
     "object-literal-sort-keys": false,
     "no-unused-expression": false,
-    "no-unused-variable": true,
     "max-classes-per-file": [
       false
     ],
