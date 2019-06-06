@@ -36,11 +36,11 @@
     "ordered-imports": [
       true
     ],
+    "interface-over-type-literal": false,
     "no-duplicate-imports": true,
     "no-require-imports": true,
     "prefer-const": true,
     "no-default-export": false,
-    "prefer-object-spread": true,
     "no-var-keyword": true,
     "no-irregular-whitespace": true,
     "no-trailing-whitespace": [true, "ignore-comments", "ignore-jsdoc"],
@@ -48,26 +48,7 @@
     "max-line-length": [
       150
     ],
-    "object-literal-sort-keys": true,
-    "member-ordering": [
-      true,
-      {
-        "order": [
-          "public-static-field",
-          "public-instance-field",
-          "public-constructor",
-          "private-static-field",
-          "private-instance-field",
-          "private-constructor",
-          "public-instance-method",
-          "protected-instance-method",
-          "private-instance-method"
-        ],
-        "alphabetize": true
-      }
-    ],
     "curly": false,
-    "interface-name": [true, "always-prefix"],
     "array-type": [true, "array-simple"],
     "no-empty-interface": false,
     "no-empty": false,
