@@ -111,18 +111,20 @@
       "type": "node",
       "name": "vscode-jest-tests",
       "request": "launch",
-      "program": "${workspaceFolder}/node_modules/jest/bin/jest",
+      "program": "${workspaceFolder}/node_modules/.bin/jest",
       "args": [
         "--silent=false",
-        "--config=${workspaceFolder}/jest.json",
+        "--config=jest.json",
         "--runInBand",
-        "--testRegex=/src/.*\\..*test\\.(ts|js)$"
+        "'--testRegex=/src/.*[\\.].*test[\\.](ts|js)$'"
       ],
       "cwd": "${workspaceFolder}",
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen"
     },
     ```
+    
+    > 💡 Please note the format of the regex `"'--testRegex=/src/.*[\\.].*test[\\.](ts|js)$'"`. Depending on your environment, shell, platform (etc.) you might need to escape the regular dot with such a syntax (`[\\.]`) or jest will not find any test, as the regex won't be correctly passed to it.
 
     Restart Visual Studio Code and use the **Debug** link above Jest tests. Breakpoints can be used too :tada:
 
