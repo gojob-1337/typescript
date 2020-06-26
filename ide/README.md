@@ -111,12 +111,11 @@
       "type": "node",
       "name": "vscode-jest-tests",
       "request": "launch",
-      "program": "${workspaceFolder}/node_modules/jest/bin/jest",
+      "program": "${workspaceFolder}/node_modules/.bin/jest",
       "args": [
         "--silent=false",
-        "--config=${workspaceFolder}/jest.json",
         "--runInBand",
-        "--testRegex=/src/.*\\..*test\\.(ts|js)$"
+        "--testPathPattern"
       ],
       "cwd": "${workspaceFolder}",
       "console": "integratedTerminal",
